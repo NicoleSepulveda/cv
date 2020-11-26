@@ -1,0 +1,1101 @@
+
+  /* =======================================================
+    Theme Name: CV
+    Version: 1
+    Author: Nicole Sepulveda
+    Email: nsjdesarrollos@gmail.com
+    Developed By: Nicole Sepulveda
+    First Release: 1 June 2019
+    Author URL: www.linkedin.com/in/nsjdesarrollos/
+  =============================================================
+  
+   CSS Index
+    01.   Main configuration  
+    02.   Buttons
+    03.   Preloader
+    04.   Section: HEADER 
+    05.   Section: NAVBAR
+    06.   Section: ABOUT ME
+    07.   Section: SKILLS
+    08.   Section: WORK EXPERIENCE
+    09.   Section: SEPARATOR
+    10.   Section: PORTFOLIO
+    11.   Section: COURSE
+    12.   Section: FOOTER
+    13.   Scroll Top
+    14.   Responsive
+  ======================================================= */
+
+/* ==== Google font ==== */
+/*@import url(https://fonts.googleapis.com/css?family=Varela+Round|Open+Sans:400,300,600,400italic,700);*/
+
+@import 'https://fonts.googleapis.com/css?family=Alegreya:400,700';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700';
+
+
+/* PROBANDO USAR FUENTES LOCALES*/
+/*@font-face{
+  font-family: Alegreya ;
+  src:url(../fonts/Alegreya-Regular.ttf);
+}*/
+
+
+  
+/*----------------------------------------------------------------------------------*/
+/*  01. Main configuration (Here the basic values ​​for the web style are defined)
+/*-----------------------------------------------------------------------------------*/
+
+  :root{
+    --white: #fff;
+    --black: #000;
+    --light-gray: #f8f8f8;
+    --light-gray2: #bbb;
+    --light-gray3: #eee;
+    --light-gray4: #ddd;
+    --light-gray5: #666;
+    --light-gray6: #b8b8b8;
+    --dark-gray: #333;
+    --dark-gray2: #444;
+    --dark-gray3: #777;
+    --dark-gray4: #171717;
+    --dark-gray5: #888888;
+    --dark-gray6: #111;
+    --dark-gray7: #3b3f42;
+    --purple: #971a97;
+    --light-purple:#cd99d4;
+    --dark-purple: #600560;
+    --pink: #ff1687;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: var(--dark-gray);
+    font-size: 16px;
+    line-height: 1.6em;
+    background-color: var(--white);
+  }
+   
+
+  h1, 
+  h2, 
+  h3, 
+  h4, 
+  h5, 
+  h6 {
+      font-family: 'Alegreya', sans-serif;
+      font-weight: 600;
+      color: var(--dark-gray2);
+  }
+
+  p{
+      letter-spacing: 0.8px;
+      line-height: 28px;
+  }
+
+  blockquote {
+    font-family: Georgia, arial, sans-serif;
+    color: var(--light-gray2);
+    font-size: 20px;    
+    border-left: 5px solid var(--light-gray3);
+    padding: 10px 20px;
+    margin: 0 0 20px;
+  }
+
+
+  .icon-white {
+    color: var(--white);
+  }
+
+   
+  .section-about-me,
+  .section-skills,
+  .section-experience,
+  .section-portfolio,
+  .section-courses{
+    padding-top: 120px; 
+    padding-bottom: 120px; 
+  }
+
+
+  .section-heading h2{
+    font-size: 40px;
+  }
+
+
+  .subtitle{
+    color:var(--dark-gray3);
+  }
+
+  /* Deafult Margin & Padding ---------------*/
+    
+    .p_30 {
+      padding: 30px;
+    }
+
+    .pt-10 {
+      padding-top: 10px;
+    }
+
+    .mt_30{
+      margin-top: 30px;
+    }    
+
+    .mb-30 {
+      margin-bottom: 30px;
+    }
+
+    .mb-40 {
+      margin-bottom: 40px;
+    }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  02. Buttons (Here we define the basic styles of web buttons)
+/*-----------------------------------------------------------------------------------*/
+
+  .btn-purple{
+    padding: 10px 20px;
+    background-color: var(--purple);
+    color: var(--white);
+    /*border: 0;*/
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+    font-weight: bold;
+  }
+
+  .btn-purple:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-color: var(--dark-purple);
+    border-color:var(--dark-purple);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    right: 0;
+    transform: scaleY(0);
+    transform-origin: 50%;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+
+
+  .btn-purple:hover:before, .btn-purple:focus:before {
+    transform: scaleY(1);
+    color: var(--white);
+    border-radius: 4px;
+  }
+
+
+  .btn-purple:hover {
+    color: var(--white);
+  }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  03. Preloader
+/*-----------------------------------------------------------------------------------*/
+
+  .loaders {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap; 
+  }
+ 
+ .loaders .loader {
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 25%;
+    max-width: 25%;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .loader{
+    display: table;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 1200;
+  }
+
+  .loader-bg{
+    background: var(--dark-gray4);
+  }
+
+  .loader-inner {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  04. Section: HEADER
+/*-----------------------------------------------------------------------------------*/
+
+  .header {
+    background: url("../img/imagenes_generales/img-header.jpg") repeat scroll center center / cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .overlay::before{
+    background: rgba(0,0,0,0.2);
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100vh;
+  }
+
+  .header-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    color: var(--white);
+  }
+
+  .header-content p {
+    font-size: 35px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    color: var(--white);
+    
+  }
+
+  .icon-float {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    margin-left: -20px;
+    margin-bottom: 30px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border: solid 2px var(--white);
+    border-radius: 20px;
+    }
+
+    .page-scroll {
+      text-align: center;
+    }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  05. Section: NAVBAR
+/*-----------------------------------------------------------------------------------*/
+  #navigation {
+    z-index: 20;
+    width:100%;
+    box-shadow:0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .bg-navbar{
+    background-color: var(--purple);
+  }
+
+  .nav-link, 
+  .navbar-brand, 
+  .nav-link:hover, 
+  .navbar-brand:hover {
+    letter-spacing: 1px;
+  }
+
+  .logoName,
+  .logoName:hover{
+    color: var(--white);
+  }  
+
+  .navbar-nav>.nav-item>.nav-link {
+    color: rgba(255,255,255,.5);
+  }
+  
+  .navbar-nav>.nav-item>.nav-link.active {
+    color: var(--white);
+  }
+
+  .navbar-nav .nav-link {
+    position: relative;
+  }
+
+
+  /* clases para cuando el menu esta en resolucion pequeña*/
+    .navbar-toggler {
+      border-color: var(--white);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  06. Section: ABOUT ME 
+/*-----------------------------------------------------------------------------------*/
+
+  .bg-gray{
+    background-color: var(--light-gray);
+  }
+
+ .me {
+    text-align: center;
+    margin-bottom: 20px;
+    background: var(--black);
+    position: relative;
+    cursor: pointer;
+  }
+
+  .me-info {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: 0.2s;
+  }
+
+  .me-info-content {
+    margin-top: -50px;
+    transition: margin 0.2s;
+  }
+
+  .me:hover .me-info {
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    transition: 0.4s;
+    border-radius: 5px;
+  }
+
+  .me:hover .me-info-content {
+    margin-top: 0;
+    transition: margin 0.4s;
+  }
+
+  .me h4 {
+    font-weight: 700;
+    margin-bottom: 2px;
+    font-size: 18px;
+    color: var(--white);
+  }
+
+  .me span {
+    font-style: italic;
+    display: block;
+    font-size: 13px;
+    color: var(--white);
+  }
+
+  .social {
+    margin-top: 15px;
+  }
+
+  .social a {
+    transition: none;
+    color: var(--white);
+  }
+
+  .social a:hover {
+    color: var(--light-purple);
+  }
+
+  .social i {
+    font-size: 18px;
+    margin: 0 2px;
+  }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  07. Section: SKILLS
+/*-----------------------------------------------------------------------------------*/
+  .progress {
+    height: 25px;
+    margin-bottom: 10px;
+  }
+
+  .skill {
+    font-family: "Open Sans", sans-serif;
+    line-height: 35px;
+    padding: 0;
+    margin: 0 0 0 20px;
+    text-transform: uppercase;
+  }
+
+  .row-all-skills{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .val {
+    float: right;
+    font-style: normal;
+    margin: 0 20px 0 0;
+  }
+
+
+  .progress-bar {
+    width: 1px;
+    text-align: left;
+    transition: .9s;
+  }
+
+  .progress-bar-purple{
+    background-color:var(--purple);
+  }
+
+  .row-skills{
+    background: url("../img/imagenes_generales/bg_skills.jpg") repeat scroll center center / cover;
+    background-attachment: fixed;
+  }
+
+  .main-skills{
+    background-color: rgba(0,0,0,0.4);
+    z-index: 10;
+  }
+
+  .others-skills{
+    background-color: rgba(0,0,0,0.6);
+    z-index: 10;
+  }
+
+  .main-skills:after,
+  .others-skills:after{
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQImWNgYGD4z0AswK4SAFXuAf8EPy+xAAAAAElFTkSuQmCC);
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 0.7;
+    z-index: -1;
+  }
+
+
+  .title-skills,
+  .subtitle-skills{
+    color:var(--white);
+  }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  08. Section: WORK EXPERIENCE
+/*-----------------------------------------------------------------------------------*/
+  .experience_feedback{
+    background-color: var(--white);
+    position: relative;
+    margin: 60px 15px 10px 15px;
+    -webkit-box-shadow: 1px 2px 10px rgba(0,0,0,.18);
+    -moz-box-shadow: 1px 2px 10px rgba(0,0,0,.18);
+    -ms-box-shadow: 1px 2px 10px rgba(0,0,0,.18);
+    -o-box-shadow: 1px 2px 10px rgba(0,0,0,.18);
+    box-shadow: 1px 2px 10px rgba(0,0,0,.18);  
+  }
+
+  .experience_feedback h5{
+    letter-spacing: 2px;
+    font-weight: 500
+  }
+
+  .experience_feedback:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -1px;
+    background-image: url(../img/imagenes_generales/code.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    opacity: 0.04;
+    background-position: top right;
+    overflow: hidden;
+  }
+
+
+  .experience_img img{
+    width: 100px !important;
+    height: auto;
+    border-radius: 100%;
+    position: absolute;
+    top: -50px;
+    left: 30px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-color: var(--dark-gray5);
+    background-color: var(--white);
+  }
+
+
+  .owl-nav {
+    margin-top: 50px !important;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .owl-carousel .owl-nav button.owl-prev,
+  .owl-carousel .owl-nav button.owl-next {
+    color: var(--white);
+    background-color: var(--purple) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    width: 50px;
+    height: 50px;
+    line-height: 42px;
+    text-align: center;
+    border-radius: 50%;
+    border: 5px solid;   
+  }
+
+  .owl-carousel .owl-nav button.owl-prev span,
+  .owl-carousel .owl-nav button.owl-next span{
+    color: var(--white);
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 600;
+  }
+  .owl-carousel .owl-nav button.owl-prev {
+    margin-right: 10px;
+  }
+
+
+  .owl-carousel .owl-nav button.owl-prev:hover,
+  .owl-carousel .owl-nav button.owl-next:hover {
+    background-color: var(--dark-purple) !important;
+ 
+  }
+
+  .btn-experience{
+    cursor: pointer;
+    position: relative;
+    z-index: 30;
+  }
+
+  /*definitivamente esta no es una buena solucion pero mientras consigo una mejor solucion utilzaré
+  esta clase. poe favor no me juzguen*/
+  .letras-fantasmas{
+    color:transparent;
+  }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  09. Section: SEPARATOR
+/*-----------------------------------------------------------------------------------*/
+
+  .section-separator{  
+    background: url(../img/imagenes_generales/separator.jpg) ;
+    background-attachment: fixed;
+    background-position: 98% 49%;
+    position: relative;
+    z-index: 10;
+  }
+
+  .text-separator{
+    color: var(--white);
+  }
+
+  .row-separator{
+    min-height: 330px;
+  }
+
+
+  .section-separator:after {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQImWNgYGD4z0AswK4SAFXuAf8EPy+xAAAAAElFTkSuQmCC);
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 0.7;
+    z-index: -1;
+  }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  10. Section: PORTFOLIO
+/*-----------------------------------------------------------------------------------*/
+
+  .portfolio-title {
+    color:var(--light-purple);
+  }
+
+  .portfolio-title:hover {
+     text-decoration: none;
+     color: var(--pink) !important;
+  }
+
+
+  .portfolio-thumb {
+      position: relative;
+      overflow: hidden;
+  }
+
+  .portfolio-thumb::before {
+    background: var(--dark-gray6);
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s ease 0s;
+    visibility: hidden;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .portfolio-wrapper:hover .portfolio-thumb::before{opacity: .9;visibility: visible;}
+  .portfolio-thumb > img {
+    width: 100%;
+    transition: .3s;
+  }
+
+  .portfolio-wrapper:hover .portfolio-thumb > img{transform: scale(1.2)}
+  .portfolio-content {
+    left: 0;
+    padding: 30px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .3s;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 9;
+  }
+
+  .portfolio-wrapper:hover .portfolio-content{opacity: 1;visibility: visible;}
+  .portfolio-wrapper {
+    position: relative;
+  }
+
+  .portfolio-content > h3 {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .portfolio-content > h3 a:hover{color: #E41919}
+  .portfolio-content span {
+    color: var(--light-gray4);
+    font-size: 14px;
+  }
+
+  .icon a {
+    display: inline-block;
+    height: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 20px;
+  }
+
+  .portfolio-menu > button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: var(--dark-gray7);
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0 8px;
+    padding: 0px 5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+    line-height: 1;
+  }
+
+  .portfolio-menu > button:focus {
+    outline: 0 none;
+  }
+
+  .portfolio-menu > button:hover, .portfolio-menu > button.active {
+    color: var(--purple);
+  }
+
+
+  /* project modal------------------------------------- */
+  .modal-dialog {
+    max-width: 550px;
+    margin: 1.75rem auto;
+    border-radius: 2px;
+  }
+
+  .modal-content {
+    border-radius: 2px;
+  }
+
+  .project-media {
+    min-height:300px;background-size:cover;
+  }
+
+  .project-media img {
+    width: 100%;
+  }
+
+  .view-project-content {
+    padding-top: 20px;
+  }
+
+  .modal-title h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+
+  .view-project {
+    padding: 20px;
+  }
+
+  .project-info-list {    
+    padding: 0;
+    margin: 0;
+  }  
+
+  .project-info-list li {
+    position: relative;
+    padding: 15px 0;
+    margin: 0 0 4px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--dark-gray2);
+    font-weight: 600;
+    font-size: 13px;
+    list-style:none;
+  }
+
+  .project-info-list li:last-child {
+    border-bottom: none;
+  }
+
+  .project-info-list li span {
+    margin-bottom: 2px;
+    display: block;
+    font-size: 12px;
+    color: var(--light-gray5);
+    font-weight: 400;
+  }
+
+  .project-info-list a {
+    color: var(--pink);
+  }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  11. Section: COURSES
+/*-----------------------------------------------------------------------------------*/
+
+  .course-wrap {
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+    margin-bottom: 20px;
+  }
+
+  .course-wrap:hover {
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
+  }
+
+  .course-info {
+    background: var(--white);
+    text-align: center;
+    padding: 30px;
+    height: 190px;
+    border-radius: 0 0 3px 3px;
+  }
+
+  .course-info h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    padding-bottom: 0;
+  }
+
+  .course-info h4 a {
+    color: var(--dark-gray);
+  }
+
+  .course-info p {
+    padding: 0;
+    margin: 0;
+    color: var(--light-gray6);
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  .course-item figure {
+    background: var(--black);
+    overflow: hidden;
+    height: 180px;
+    position: relative;
+    border-radius: 4px 4px 0 0;
+    margin: 0;
+  }
+
+  .course-item figure:hover img {
+    opacity: 0.4;
+    transition: 0.3s;
+  }
+
+  .link-course-preview {
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    line-height: 1;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    background: var(--white);
+    border-radius: 50%;
+    transition: 0.2s linear;
+  }
+
+  .course-item figure .link-course-preview i {
+    padding-top: 8px;
+    font-size: 22px;
+    color: var(--dark-gray);
+  }
+
+
+  .course-item figure .link-course-preview {
+    left: calc(50% - 38px);
+    top: calc(50% - 18px);
+  }
+
+  .course-item figure:hover .link-course-preview {
+    opacity: 1;
+    left: calc(57% - 44px);
+  }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  12.  FOOTER
+/*-----------------------------------------------------------------------------------*/
+  footer {
+    color: var(--white);
+  }
+
+  .footer-top{
+    padding: 60px 0 30px 0;
+  }
+  .footer-top h1{
+    color: var(--white);
+    margin-bottom: 35px;
+  }
+
+  .footer-buttom{
+    border-top: 1px solid rgba(255,255,255,.5);
+    text-align: center;
+    padding-top: 16px;
+  }
+
+  .nicole-info p{
+    margin-bottom: 10px;
+  }
+
+  .nicole-info{
+    margin-bottom: 50px;
+  }
+
+  .footer-top .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: var(--white);
+    color: var(--purple);
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+  }
+
+  .footer-top .social-links a:hover {
+    background-color: var(--black);
+    color:#fff;
+  }
+
+
+
+/*----------------------------------------------------------------------------------*/
+/*  13. Scroll Top (FLECHA para llegar al home)
+/*-----------------------------------------------------------------------------------*/
+
+  #back-to-top {
+    position: fixed;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    bottom: 25px;
+    margin: 0 25px 0 0;
+    z-index: 9999;
+    transition: 0.35s;
+    transform: scale(0.7);
+    width: 46px;
+    height: 46px;
+    background-color: #460146;
+    opacity: 1;
+    transition: all 0.3s;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 21px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  #back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  .arrow{
+    margin-top: 12px;
+  }
+
+  .bg-gradient{
+    background-image: linear-gradient( 135deg, rgba(60, 8, 118) 0%, rgba(250, 0, 118) 100%);
+  }
+
+
+
+/* ---------------------------------------------------------------------------------*/
+/*  Responsive
+/* ------------------------------------------------------------------------------- */
+
+  @media (min-width: 992px) {
+    
+    /* Section: NAVBAR ------------------------------ */
+      .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
+        font-size: 14px;
+      }
+    
+      .navbar-nav>.nav-item>.nav-link.active:after {
+        content: "";
+        border-bottom: 2px solid var(--light-purple);
+        left: 1rem;
+        right: 1rem;
+        bottom: 5px;
+        height: 1px;
+        position: absolute;
+      }
+  
+  }
+
+
+  @media (max-width: 768px)
+  {
+
+    /* FOOTER ------------------------------ */
+    .nicole-info {
+      font-size: 14px;
+    }
+
+    .footer-top h1{
+      font-size: 30px;
+    }
+  }
+
+
+  /* small mobile :320px. */
+  @media (max-width: 767px) {
+
+    /* Section: PORTFOLIO ------------------------------ */
+      .portfolio-menu > button {
+        margin: 0 5px;
+        padding: 0px 1px;
+        margin-bottom: 5px;
+      }
+      
+      .modal-dialog {
+        max-width: 100%;
+        padding: 0 25px;
+      }
+
+  }
+
+
+  @media only screen and (max-width: 800px) {
+    
+    /* Section: HEADER ------------------------------ */
+      .header-content h1 {
+          font-size: 3.5rem;
+      }
+
+      #typed{
+        font-size: 2rem;
+      }
+
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    
+    /* Section: HEADER ------------------------------ */
+      .header-content h1 {
+          font-size: 3rem;
+      }
+
+      #typed{
+        font-size: 2rem;
+      }
+  }
+
+  @media only screen and (max-width: 500px) {
+    
+    /* Section: HEADER ------------------------------ */
+      .header-content h1 {
+        font-size: 2.5rem;
+      }
+
+      #typed{
+        font-size: 1.5rem;
+      }
+  }
+
+  @media (max-width: 370px) {
+
+    /* Section: SKIILS ------------------------------ */
+      .skill {
+        margin: 0 0 0 10px;
+      }
+
+      .val {
+        margin: 0px 5px 0 0;
+      }
+
+  }
+
+
